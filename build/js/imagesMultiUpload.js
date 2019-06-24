@@ -562,7 +562,7 @@ if (!Array.prototype.find) {
   var icon = PLUGIN_NAME + 'Icon';
   $.FroalaEditor.DefineIcon(icon, { NAME: 'file-image-o' });
   $.FroalaEditor.RegisterCommand(PLUGIN_NAME, {
-    title: 'Images Multi Upload',
+    title: 'Загрузить галерею',
     icon: icon,
     undo: false,
     focus: false,
