@@ -58,7 +58,7 @@ if (!Array.prototype.find) {
 
   const dropZone = `
     <div class="fr-image-upload-layer fr-active fr-layer fp-image-upload-dropzone">
-      <strong>Drop image</strong><br>(or click)
+      <strong>Перетащите изображение</strong><br>(или нажмите)
       <div class="fr-form">
         <input type="file" multiple="" accept="image/jpeg, image/jpg, image/png, image/gif" 
             tabindex="-1" aria-labelledby="fr-image-upload-layer-1" role="button" dir="auto">
@@ -68,6 +68,29 @@ if (!Array.prototype.find) {
     <div class="multi-upload">
     <div class="multi-upload__content"></div>
     <div class="multi-upload__buttons">
+    <div class="multi-upload__upload-type-select">
+        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-thumbnail" name="select-type" value="select-upload-thumbnail" checked>
+        <label for="select-upload-thumbnail">Превью со ссылкой на оригинал</label>
+        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-resize" name="select-type" value="select-upload-resize">
+        <label for="select-upload-resize">Уменьшать картинку</label>
+    </div>
+    <div class="multi-upload__upload-optimize-select">  
+        <input type="checkbox" class="multi-upload__select-optimize" id="select-optimize" name="select-optimize" value="select-optimize" checked>
+        <label for="select-optimize">Оптимизация изображения</label>
+        <input type="checkbox" class="multi-upload__select-optimize" id="select-non-optimize" name="select-optimize" value="select-non-optimize">
+        <label for="select-non-optimize">Оставлять оригиналы больших изображений (для тестовых фото)</label>
+    </div>
+    <div class="multi-upload__upload-size-select"> 
+        <span class="multi-upload__upload-size-select__label">Размеры изображения</span>
+        <input type="radio" class="multi-upload__select-size-radio" id="select-size-full" name="select-size" value="select-size-full" checked>
+        <label for="select-size-full">100%</label>
+        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_2" name="select-size" value="select-size-1_2">
+        <label for="select-size-1_2">1/2</label>
+        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_3" name="select-size" value="select-size-1_3">
+        <label for="select-size-1_3">1/3</label>
+        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_4" name="select-size" value="select-size-1_4">
+        <label for="select-size-1_4">1/4</label>
+    </div>
         <button class="multi-upload__btn multi-upload__insert-btn" disabled>Insert images</button>
         <button class="multi-upload__btn multi-upload__cancel-btn">Cancel</button>
     </div></div>`;
