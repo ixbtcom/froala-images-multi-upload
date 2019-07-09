@@ -77,8 +77,8 @@ if (!Array.prototype.find) {
     <div class="multi-upload__upload-optimize-select">  
         <input type="checkbox" class="multi-upload__select-optimize" id="select-optimize" name="select-optimize" value="select-optimize" checked>
         <label for="select-optimize">Оптимизация изображения</label>
-        <input type="checkbox" class="multi-upload__select-optimize" id="select-non-optimize" name="select-optimize" value="select-non-optimize">
-        <label for="select-non-optimize">Оставлять оригиналы больших изображений (для тестовых фото)</label>
+        <input type="checkbox" class="multi-upload__select-optimize" id="select-keepfull" name="select-keepfull" value="select-keepfull">
+        <label for="select-keepfull">Оставлять оригиналы больших изображений (для тестовых фото)</label>
     </div>
     <div class="multi-upload__upload-size-select"> 
         <span class="multi-upload__upload-size-select__label">Размеры изображения</span>
@@ -296,6 +296,7 @@ if (!Array.prototype.find) {
       this.$cancelButton = this.$el.find('.multi-upload__cancel-btn');
       this.editor = options.editor;
       this.images = [];
+      this.dataAttrs = {};
 
       this.handleEvents();
     }
@@ -340,7 +341,18 @@ if (!Array.prototype.find) {
       return this;
     }
 
+    updateDataAttrs() {
+      const c = this.$el;
+      let attrs = {};
+      attrs['select-type'] = c.find('[name=select-type]:checked').val();
+      attrs['select-optimize'] = !!c.find('[name=select-optimize]:checked').length;
+      attrs['select-keepfull'] = !!c.find('[name=select-keepfull]:checked').length;
+      attrs['select-size'] = c.find('[name=select-size]:checked').val();
+      this.dataAttrs = attrs;
+    }
+
     insertImages(images) {
+      this.updateDataAttrs();
       let imgIndex = 0;
       this.editor.events.on('image.inserted', $img => {
         /* eslint-disable */
@@ -358,7 +370,9 @@ if (!Array.prototype.find) {
     }
 
     insertImage(image) {
-      this.editor.image.insert(image.renderUrl, false, { uploaded_url: image.getUrl() }, null);
+      let dataAttrs = this.dataAttrs;
+      dataAttrs['uploaded_url'] = image.getUrl();
+      this.editor.image.insert(image.renderUrl, false, dataAttrs, null);
     }
 
     add(files) {

@@ -65,7 +65,7 @@ if (!Array.prototype.find) {
   var POPUP_NAME = PLUGIN_NAME + '.popup';
 
   var dropZone = '\n    <div class="fr-image-upload-layer fr-active fr-layer fp-image-upload-dropzone">\n      <strong>\u041F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435</strong><br>(\u0438\u043B\u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435)\n      <div class="fr-form">\n        <input type="file" multiple="" accept="image/jpeg, image/jpg, image/png, image/gif" \n            tabindex="-1" aria-labelledby="fr-image-upload-layer-1" role="button" dir="auto">\n      </div>\n    </div>';
-  var multiUpload = '\n    <div class="multi-upload">\n    <div class="multi-upload__content"></div>\n    <div class="multi-upload__buttons">\n    <div class="multi-upload__upload-type-select">\n        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-thumbnail" name="select-type" value="select-upload-thumbnail" checked>\n        <label for="select-upload-thumbnail">\u041F\u0440\u0435\u0432\u044C\u044E \u0441\u043E \u0441\u0441\u044B\u043B\u043A\u043E\u0439 \u043D\u0430 \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B</label>\n        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-resize" name="select-type" value="select-upload-resize">\n        <label for="select-upload-resize">\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0442\u044C \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0443</label>\n    </div>\n    <div class="multi-upload__upload-optimize-select">  \n        <input type="checkbox" class="multi-upload__select-optimize" id="select-optimize" name="select-optimize" value="select-optimize" checked>\n        <label for="select-optimize">\u041E\u043F\u0442\u0438\u043C\u0438\u0437\u0430\u0446\u0438\u044F \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F</label>\n        <input type="checkbox" class="multi-upload__select-optimize" id="select-non-optimize" name="select-optimize" value="select-non-optimize">\n        <label for="select-non-optimize">\u041E\u0441\u0442\u0430\u0432\u043B\u044F\u0442\u044C \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B \u0431\u043E\u043B\u044C\u0448\u0438\u0445 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0439 (\u0434\u043B\u044F \u0442\u0435\u0441\u0442\u043E\u0432\u044B\u0445 \u0444\u043E\u0442\u043E)</label>\n    </div>\n    <div class="multi-upload__upload-size-select"> \n        <span class="multi-upload__upload-size-select__label">\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F</span>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-full" name="select-size" value="select-size-full" checked>\n        <label for="select-size-full">100%</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_2" name="select-size" value="select-size-1_2">\n        <label for="select-size-1_2">1/2</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_3" name="select-size" value="select-size-1_3">\n        <label for="select-size-1_3">1/3</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_4" name="select-size" value="select-size-1_4">\n        <label for="select-size-1_4">1/4</label>\n    </div>\n        <button class="multi-upload__btn multi-upload__insert-btn" disabled>Insert images</button>\n        <button class="multi-upload__btn multi-upload__cancel-btn">Cancel</button>\n    </div></div>';
+  var multiUpload = '\n    <div class="multi-upload">\n    <div class="multi-upload__content"></div>\n    <div class="multi-upload__buttons">\n    <div class="multi-upload__upload-type-select">\n        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-thumbnail" name="select-type" value="select-upload-thumbnail" checked>\n        <label for="select-upload-thumbnail">\u041F\u0440\u0435\u0432\u044C\u044E \u0441\u043E \u0441\u0441\u044B\u043B\u043A\u043E\u0439 \u043D\u0430 \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B</label>\n        <input type="radio" class="multi-upload__select-upload-type" id="select-upload-resize" name="select-type" value="select-upload-resize">\n        <label for="select-upload-resize">\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0442\u044C \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0443</label>\n    </div>\n    <div class="multi-upload__upload-optimize-select">  \n        <input type="checkbox" class="multi-upload__select-optimize" id="select-optimize" name="select-optimize" value="select-optimize" checked>\n        <label for="select-optimize">\u041E\u043F\u0442\u0438\u043C\u0438\u0437\u0430\u0446\u0438\u044F \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F</label>\n        <input type="checkbox" class="multi-upload__select-optimize" id="select-keepfull" name="select-keepfull" value="select-keepfull">\n        <label for="select-keepfull">\u041E\u0441\u0442\u0430\u0432\u043B\u044F\u0442\u044C \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B \u0431\u043E\u043B\u044C\u0448\u0438\u0445 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0439 (\u0434\u043B\u044F \u0442\u0435\u0441\u0442\u043E\u0432\u044B\u0445 \u0444\u043E\u0442\u043E)</label>\n    </div>\n    <div class="multi-upload__upload-size-select"> \n        <span class="multi-upload__upload-size-select__label">\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F</span>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-full" name="select-size" value="select-size-full" checked>\n        <label for="select-size-full">100%</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_2" name="select-size" value="select-size-1_2">\n        <label for="select-size-1_2">1/2</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_3" name="select-size" value="select-size-1_3">\n        <label for="select-size-1_3">1/3</label>\n        <input type="radio" class="multi-upload__select-size-radio" id="select-size-1_4" name="select-size" value="select-size-1_4">\n        <label for="select-size-1_4">1/4</label>\n    </div>\n        <button class="multi-upload__btn multi-upload__insert-btn" disabled>Insert images</button>\n        <button class="multi-upload__btn multi-upload__cancel-btn">Cancel</button>\n    </div></div>';
   var dropTemplate = '<div class="images-multi-upload">' + dropZone + multiUpload + '</div>';
 
   var IMAGE_UPLOAD_STATUS_PENDING = 1;
@@ -81,7 +81,6 @@ if (!Array.prototype.find) {
       this.$image = this.$el.find('.upload-image__image');
       this.$closeBtn = this.$el.find('.upload-image__close-btn');
       this.$progressLine = this.$el.find('.upload-image__progressbar-line');
-      this.$selectSize = this.$el.find('[name=select-size]:checked').value;
       this.image = options.file;
       this.url = null;
       this.status = 0;
@@ -267,19 +266,6 @@ if (!Array.prototype.find) {
 
       this.$el.addClass('image-insert');
 
-      if (this.$selectSize == 'select-size-full') {
-        this.$el.addClass('w-full');
-      }
-      if (this.$selectSize == 'select-size-1_2') {
-        this.$el.addClass('w-1/2');
-      }
-      if (this.$selectSize == 'select-size-1_3') {
-        this.$el.addClass('w-1/3');
-      }
-      if (this.$selectSize == 'select-size-1_4') {
-        this.$el.addClass('w-1/4');
-      }
-
       this.init();
     }
 
@@ -313,6 +299,7 @@ if (!Array.prototype.find) {
       this.$cancelButton = this.$el.find('.multi-upload__cancel-btn');
       this.editor = options.editor;
       this.images = [];
+      this.dataAttrs = {};
 
       this.handleEvents();
     }
@@ -348,7 +335,6 @@ if (!Array.prototype.find) {
     }, {
       key: 'onInsertButtonClick',
       value: function onInsertButtonClick() {
-        console.log($('[type=radio][name=select-size]:selected').value);
         if (!this.images || !this.images.length) {
           this.error('No images to insert');
           return;
@@ -367,10 +353,22 @@ if (!Array.prototype.find) {
         return this;
       }
     }, {
+      key: 'updateDataAttrs',
+      value: function updateDataAttrs() {
+        var c = this.$el;
+        var attrs = {};
+        attrs['select-type'] = c.find('[name=select-type]:checked').val();
+        attrs['select-optimize'] = !!c.find('[name=select-optimize]:checked').length;
+        attrs['select-keepfull'] = !!c.find('[name=select-keepfull]:checked').length;
+        attrs['select-size'] = c.find('[name=select-size]:checked').val();
+        this.dataAttrs = attrs;
+      }
+    }, {
       key: 'insertImages',
       value: function insertImages(images) {
         var _this5 = this;
 
+        this.updateDataAttrs();
         var imgIndex = 0;
         this.editor.events.on('image.inserted', function ($img) {
           /* eslint-disable */
@@ -389,7 +387,9 @@ if (!Array.prototype.find) {
     }, {
       key: 'insertImage',
       value: function insertImage(image) {
-        this.editor.image.insert(image.renderUrl, false, { uploaded_url: image.getUrl() }, null);
+        var dataAttrs = this.dataAttrs;
+        dataAttrs['uploaded_url'] = image.getUrl();
+        this.editor.image.insert(image.renderUrl, false, dataAttrs, null);
       }
     }, {
       key: 'add',
